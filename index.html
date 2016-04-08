@@ -16,7 +16,7 @@
 </head>
 
 <body>
-  <input type='text' id='set-max-choices' value='1' />
+  <input type='text' id='set-max-choices' />
   <form id="interviewForm" class="form-horizontal">
       <div class="form-group">
           <label class="col-xs-3 control-label">Programming Languages</label>
@@ -91,6 +91,11 @@
       });
     };
 
+    var updateMaxChoices = function() {
+      window.maximum_choices = parseInt($('#set-max-choices').val(), 10);
+      _initValidationForm();
+    };
+
     $('input:checkbox').iCheck({
       checkboxClass: 'icheckbox_flat-blue',
       radioClass: 'iradio_flat-blue'
@@ -104,10 +109,7 @@
 
     $('#set-max-choices').val(parseInt($('#set-max-choices').val() || window.maximum_choices || 1));
 
-    $('#set-max-choices').on('change', function() {
-      window.maximum_choices = parseInt($('#set-max-choices').val(), 10);
-      _initValidationForm();
-    })
+    $('#set-max-choices').on('change', updateMaxChoices).on('input', updateMaxChoices);
   });
   </script>
 </body>
