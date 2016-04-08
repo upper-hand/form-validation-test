@@ -99,6 +99,7 @@
     }).on('ifChanged', function(e) {
       var field = $(this).attr('name');
       // $('#interviewForm').formValidation('revalidateField', field);
+      return true;
     });
 
     $('#set-max-choices').on('change', function() {
