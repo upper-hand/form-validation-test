@@ -10,9 +10,13 @@
 
 <link href='https://cdnjs.cloudflare.com/ajax/libs/formvalidation/0.6.1/css/formValidation.css' rel='stylesheet' />
 <script src='https://cdnjs.cloudflare.com/ajax/libs/formvalidation/0.6.1/js/framework/bootstrap.js' type='text/javascript'></script>
+
+<link href='https://cdnjs.cloudflare.com/ajax/libs/iCheck/1.0.2/skins/all.css' rel='stylesheet' />
+<script src='https://cdnjs.cloudflare.com/ajax/libs/iCheck/1.0.2/icheck.js' type='text/javascript'></script>
 </head>
 
 <body>
+  <input type='text' id='set-max-choices' value='1' />
   <form id="interviewForm" class="form-horizontal">
       <div class="form-group">
           <label class="col-xs-3 control-label">Programming Languages</label>
@@ -88,6 +92,14 @@
     };
 
     _initValidationForm();
+
+    $('input:checkbox').iCheck({
+      checkboxClass: 'icheckbox_flat-blue',
+      radioClass: 'iradio_flat-blue'
+    }).on('ifChanged', function(e) {
+      var field = $(this).attr('name');
+      $('#interviewForm').formValidation('revalidateField', field);
+    });
 
     $('#set-max-choices').on('input', function() {
       window.maximum_choices = parseInt($('#set-max-choices').val(), 10);
