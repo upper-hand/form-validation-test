@@ -102,6 +102,8 @@
 
     _initValidationForm();
 
+    $('#set-max-choices').val(parseInt($('#set-max-choices').val() || window.maximum_choices || 1));
+
     $('#set-max-choices').on('change', function() {
       window.maximum_choices = parseInt($('#set-max-choices').val(), 10);
       _initValidationForm();
