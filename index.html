@@ -96,8 +96,8 @@
       radioClass: 'iradio_flat-blue'
     })
     .on('ifChanged', function(e) {
-      var field = $(this).attr('name');
-      $('#interviewForm').formValidation('revalidateField', field);
+      // var field = $(this).attr('name');
+      $('#interviewForm').formValidation('revalidateField', $('#interviewForm').find('input:checkbox'));
     });
 
     _initValidationForm();
