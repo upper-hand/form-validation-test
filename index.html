@@ -98,7 +98,8 @@
       radioClass: 'iradio_flat-blue'
     }).on('ifChanged', function(e) {
       var field = $(this).attr('name');
-      $('#interviewForm').formValidation('revalidateField', field);
+      _initValidationForm();
+      // $('#interviewForm').formValidation('revalidateField', field);
     });
 
     $('#set-max-choices').on('change', function() {
