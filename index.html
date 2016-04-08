@@ -96,11 +96,11 @@
     $('input:checkbox').iCheck({
       checkboxClass: 'icheckbox_flat-blue',
       radioClass: 'iradio_flat-blue'
-    }).on('ifChanged', function(e) {
-      var field = $(this).attr('name');
-      // $('#interviewForm').formValidation('revalidateField', field);
-      return false;
     });
+    // .on('ifChanged', function(e) {
+    //   var field = $(this).attr('name');
+    //   // $('#interviewForm').formValidation('revalidateField', field);
+    // });
 
     $('#set-max-choices').on('change', function() {
       window.maximum_choices = parseInt($('#set-max-choices').val(), 10);
