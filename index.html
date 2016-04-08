@@ -101,7 +101,7 @@
       $('#interviewForm').formValidation('revalidateField', field);
     });
 
-    $('#set-max-choices').on('input', function() {
+    $('#set-max-choices').on('change', function() {
       window.maximum_choices = parseInt($('#set-max-choices').val(), 10);
       _initValidationForm();
     })
